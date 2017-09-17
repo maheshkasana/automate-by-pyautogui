@@ -127,7 +127,7 @@ def accept_all_friend_requests():
     i = 0
     while i < n:
         pyautogui.click(pyautogui.position())
-        pyautogui.scroll(-61)
+        pyautogui.scroll(-115)
         i += 1
         time.sleep(1)
 
@@ -141,7 +141,7 @@ def send_friend_requests_conditional():
     while i < n:
         pyautogui.moveTo(657, 248)
         pyautogui.click(pyautogui.position())
-        time.sleep(1)
+        # time.sleep(1)
         # close chat
         pyautogui.moveTo(1114, 406)
         pyautogui.click(pyautogui.position())
@@ -170,9 +170,10 @@ def send_friend_requests_conditional():
         i += 1
         # time.sleep(1)
 
-        if i % 10 == 0:
+        if i % 15 == 0:
             pyautogui.moveTo(500, 46)
             pyautogui.click(500, 46)
+            pyautogui.scroll(3000)
             pyautogui.hotkey("Enter")
             time.sleep(3)
             pyautogui.scroll(3000)
@@ -182,11 +183,91 @@ def send_friend_requests_conditional():
             # #for bandikui location Hometown
             pyautogui.moveTo(790, 570)
             pyautogui.click(790, 570)
-
             time.sleep(3)
             pyautogui.scroll(1000)
             pyautogui.scroll(-920)
 
+
+def send_friend_requests_mutual():
+    print("\n\nWelcome to module to send friend requests to Mutual Friend Friend")
+    n = int(input(colored("How Many Requests You want to send : ")))
+    time.sleep(5)
+    i = 1
+    pyautogui.scroll(-920)
+    while i < n:
+        pyautogui.moveTo(657, 248)
+        pyautogui.click(pyautogui.position())
+        # time.sleep(1)
+        # close chat
+        pyautogui.moveTo(1114, 406)
+        pyautogui.click(pyautogui.position())
+        # close cant send request pop up
+        pyautogui.moveTo(1086, 406)
+        pyautogui.click(pyautogui.position())
+        # close cant send request pop up type 2
+        pyautogui.moveTo(1086, 427)
+        pyautogui.click(pyautogui.position())
+        # clisk confirm
+        pyautogui.moveTo(848, 373)
+        pyautogui.click(pyautogui.position())
+        # clisk cancle
+        pyautogui.moveTo(785, 374)
+        pyautogui.click(pyautogui.position())
+        pyautogui.scroll(-115)
+        if i % 30 == 0:
+            pyautogui.scroll(-10)
+            time.sleep(3)
+        i += 1
+        if i % 10 == 0:
+            pyautogui.moveTo(500, 46)
+            pyautogui.click(500, 46)
+            pyautogui.scroll(3000)
+            pyautogui.hotkey("PgUp")
+            pyautogui.hotkey("PgUp")
+            pyautogui.hotkey("PgUp")
+            time.sleep(1)
+            pyautogui.hotkey("Enter")
+            time.sleep(3)
+            pyautogui.scroll(3000)
+            # #for bandikui location current location
+            # pyautogui.moveTo(790, 651)
+            # pyautogui.click(790, 651)
+            # #for bandikui location Hometown
+            pyautogui.moveTo(790, 570)
+            pyautogui.click(pyautogui.position())
+            time.sleep(2)
+            pyautogui.moveTo(830, 617)
+            pyautogui.click(pyautogui.position())
+            pyautogui.typewrite("Devnarayan Gurjar")
+            pyautogui.hotkey("down")
+            time.sleep(2)
+            pyautogui.hotkey("Enter")
+            pyautogui.moveTo(815, 617)
+            pyautogui.click(pyautogui.position())
+            pyautogui.typewrite("Devnarayan Gurjar")
+            pyautogui.hotkey("down")
+            time.sleep(2)
+            pyautogui.hotkey("Enter")
+            time.sleep(2)
+            pyautogui.moveTo(788, 308)
+            pyautogui.click(pyautogui.position())
+            pyautogui.scroll(1000)
+            time.sleep(1)
+            pyautogui.scroll(-920)
+
+
+def send_friend_requests_mutual_profile():
+    print("\n\nWelcome to module to send friend requests to Mutual Friend Friend")
+    n = int(input(colored("How Many Requests You want to send : ")))
+    time.sleep(5)
+    i = 1
+    while i < n:
+        pyautogui.click(pyautogui.position())
+        pyautogui.moveRel(0, 0)
+        pyautogui.click(pyautogui.position())
+        pyautogui.scroll(-134)
+        pyautogui.moveRel(0, 415)
+        pyautogui.click(pyautogui.position())
 
 def login_to_facebook_account(flag):
     if flag != -1:
@@ -220,7 +301,8 @@ def login_to_facebook_account(flag):
         time.sleep(5)
 
     while True:
-        print("\n\n\tWelcome To perform operation :\n\t0 : Logout & Exit\n\t1 : Send Friend Requests\n\t2 : Accept All Friend Requests\n\t3 : Send Requests To conditional friend\n")
+        print("\n\n\tWelcome To perform operation :\n\t0 : Logout & Exit\n\t1 : Send Friend Requests\n\t2 : Accept All Friend Requests\n\t3 : Send Requests To conditional friend\n"
+              "\t4 : Send Request to Mutual Friend\n\t5 : Send Request To mutual by Profile\n")
         option = int(input("\t"))
         if option == 0:
             time.sleep(5)
@@ -232,6 +314,10 @@ def login_to_facebook_account(flag):
             accept_all_friend_requests()
         elif option == 3:
             send_friend_requests_conditional()
+        elif option == 4:
+            send_friend_requests_mutual()
+        elif option == 5:
+            send_friend_requests_mutual_profile()
 
 
 def main():
