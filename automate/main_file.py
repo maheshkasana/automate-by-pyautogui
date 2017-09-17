@@ -260,14 +260,47 @@ def send_friend_requests_mutual_profile():
     print("\n\nWelcome to module to send friend requests to Mutual Friend Friend")
     n = int(input(colored("How Many Requests You want to send : ")))
     time.sleep(5)
+    pyautogui.moveTo(428, 187)
+    input("Hit OK")
     i = 1
+    time.sleep(3)
+
     while i < n:
+        # left add req
+        pyautogui.moveTo(428, 187)
         pyautogui.click(pyautogui.position())
-        pyautogui.moveRel(0, 0)
+        # time.sleep(1)
+        # Confirm
+        pyautogui.moveTo(849, 376)
         pyautogui.click(pyautogui.position())
-        pyautogui.scroll(-134)
-        pyautogui.moveRel(0, 415)
+        # Close Button
+        pyautogui.moveTo(1086, 406)
         pyautogui.click(pyautogui.position())
+        pyautogui.moveTo(1086, 423)
+        pyautogui.click(pyautogui.position())
+        pyautogui.moveTo(830, 351)
+        pyautogui.click(pyautogui.position())
+
+        # Right add req
+        pyautogui.moveTo(844, 187)
+        pyautogui.click(pyautogui.position())
+        # time.sleep(1)
+        # Confirm
+        pyautogui.moveTo(849, 376)
+        pyautogui.click(pyautogui.position())
+        # Close Button
+        pyautogui.moveTo(1086, 406)
+        pyautogui.click(pyautogui.position())
+        pyautogui.moveTo(1086, 423)
+        pyautogui.click(pyautogui.position())
+        pyautogui.moveTo(830, 351)
+        pyautogui.click(pyautogui.position())
+
+        pyautogui.scroll(-135)
+        i += 1
+        if i % 10 == 0:
+            pyautogui.scroll(-5)
+
 
 def login_to_facebook_account(flag):
     if flag != -1:
