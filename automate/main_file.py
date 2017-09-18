@@ -222,9 +222,6 @@ def send_friend_requests_mutual():
             pyautogui.moveTo(500, 46)
             pyautogui.click(500, 46)
             pyautogui.scroll(3000)
-            pyautogui.hotkey("PgUp")
-            pyautogui.hotkey("PgUp")
-            pyautogui.hotkey("PgUp")
             time.sleep(1)
             pyautogui.hotkey("Enter")
             time.sleep(3)
@@ -270,6 +267,9 @@ def send_friend_requests_mutual_profile():
         pyautogui.moveTo(428, 187)
         pyautogui.click(pyautogui.position())
         # time.sleep(1)
+        # close chat
+        pyautogui.moveTo(1114, 406)
+        pyautogui.click(pyautogui.position())
         # Confirm
         pyautogui.moveTo(849, 376)
         pyautogui.click(pyautogui.position())
@@ -285,6 +285,9 @@ def send_friend_requests_mutual_profile():
         pyautogui.moveTo(844, 187)
         pyautogui.click(pyautogui.position())
         # time.sleep(1)
+        # close chat
+        pyautogui.moveTo(1114, 406)
+        pyautogui.click(pyautogui.position())
         # Confirm
         pyautogui.moveTo(849, 376)
         pyautogui.click(pyautogui.position())
@@ -299,6 +302,23 @@ def send_friend_requests_mutual_profile():
         pyautogui.scroll(-135)
         i += 1
         if i % 10 == 0:
+            pyautogui.scroll(-5)
+
+
+def suggest_friend():
+    print("\n\nWelcome to module to Suggest friend")
+    n = int(input(colored("How Many Friend you want to suggest: ")))
+    time.sleep(5)
+    # pyautogui.moveTo(924, 111)
+    # pyautogui.click(924, 111)
+    time.sleep(5)
+    i = 0
+    while i < n:
+        pyautogui.click(pyautogui.position())
+        pyautogui.scroll(-74)
+        i += 1
+        time.sleep(1)
+        if i % 20 == 0:
             pyautogui.scroll(-5)
 
 
@@ -335,7 +355,7 @@ def login_to_facebook_account(flag):
 
     while True:
         print("\n\n\tWelcome To perform operation :\n\t0 : Logout & Exit\n\t1 : Send Friend Requests\n\t2 : Accept All Friend Requests\n\t3 : Send Requests To conditional friend\n"
-              "\t4 : Send Request to Mutual Friend\n\t5 : Send Request To mutual by Profile\n")
+              "\t4 : Send Request to Mutual Friend\n\t5 : Send Request To mutual by Profile\n\t6 : Suggest Friend\n")
         option = int(input("\t"))
         if option == 0:
             time.sleep(5)
@@ -351,6 +371,8 @@ def login_to_facebook_account(flag):
             send_friend_requests_mutual()
         elif option == 5:
             send_friend_requests_mutual_profile()
+        elif option == 6:
+            suggest_friend()
 
 
 def main():
